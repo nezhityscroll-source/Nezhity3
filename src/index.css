@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-title: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-title {
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+.glassmorphism {
+  background: rgba(26, 8, 38, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 45, 146, 0.22);
+}
+
+.glassmorphism-light {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   LIQUID GLASS (Леденцовый глянец) & BENTO UTILITIES
+   ========================================================================== */
+
+/* 1. Liquid Glass Card (Dark) - Refined Charcoal Slate with Muted Rose Hint */
+.liquid-glass-card-dark {
+  background: linear-gradient(145deg, rgba(28, 26, 34, 0.85) 0%, rgba(18, 17, 23, 0.92) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4),
+    0 12px 32px -4px rgba(0, 0, 0, 0.5),
+    0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Liquid Glass Card (Light) - Calming Pearl & Alabaster */
+.liquid-glass-card-light {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 246, 248, 0.85) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 1.5px 0 rgba(0, 0, 0, 0.02),
+    0 8px 24px -4px rgba(0, 0, 0, 0.05),
+    0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+/* 3. Liquid Glass Candy Pill / Button - Muted Dusty Rose / Velvet Mauve */
+.liquid-candy-pill {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 
+    inset 0 1.2px 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.2),
+    0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.liquid-candy-pill:active {
+  transform: scale(0.97);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(0, 0, 0, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* Specular reflection bar for jelly buttons */
+.liquid-candy-pill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 45%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.02));
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+/* 4. Frosted Crystal Capsule */
+.crystal-capsule {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.crystal-capsule-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 1), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-neon {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-neon-glow {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+}
+
+.mascot-rim-glow {
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.45));
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    overscroll-behavior-y: none;
+  }
+}
+
+/* Custom scrollbar hiding */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   CSS MEDIA QUERIES FOR ADAPTIVE LAYOUT
+   ========================================================================== */
+
+/* 1. Mobile Styles (Default & max-width: 639px) */
+@media (max-width: 639px) {
+  .app-container-adaptive {
+    width: 100%;
+    max-width: 440px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-card-adaptive {
+    flex-direction: row;
+    gap: 0.75rem;
+    padding: 1.25rem;
+  }
+
+  .hero-mascot-adaptive {
+    width: 7.5rem;
+    height: 9.5rem;
+  }
+
+  .quick-tiles-adaptive {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.625rem;
+  }
+
+  .atelier-grid-adaptive {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .desktop-only-sidebar {
+    display: none;
+  }
+
+  .mobile-bottom-nav {
+    display: block;
+  }
+}
+
+/* 2. Tablet Styles (min-width: 640px and max-width: 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .app-container-adaptive {
+    width: 100%;
+    max-width: 720px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-card-adaptive {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.75rem;
+  }
+
+  .hero-mascot-adaptive {
+    width: 11rem;
+    height: 13rem;
+  }
+
+  .quick-tiles-adaptive {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.875rem;
+  }
+
+  .atelier-grid-adaptive {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .desktop-only-sidebar {
+    display: none;
+  }
+
+  .mobile-bottom-nav {
+    display: block;
+  }
+}
+
+/* 3. Desktop Styles (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .app-container-adaptive {
+    width: 100%;
+    max-width: 1080px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .desktop-split-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .desktop-only-sidebar {
+    display: block;
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .mobile-bottom-nav {
+    display: none;
+  }
+
+  .hero-card-adaptive {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .hero-mascot-adaptive {
+    width: 13rem;
+    height: 15rem;
+  }
+
+  .quick-tiles-adaptive {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .atelier-grid-adaptive {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+

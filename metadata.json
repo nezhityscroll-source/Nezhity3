@@ -1,0 +1,8 @@
+{
+  "name": "Remix ART XAOC — Студия маникюра «Нежная жесть»",
+  "description": "Эстетика нежной жести: стильный салон маникюра, запись на ритуалы, интерактивное Колесо фортуны, помощница Нежить и клуб привилегий.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
